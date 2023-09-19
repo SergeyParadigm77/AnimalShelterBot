@@ -36,16 +36,15 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
             if (update.callbackQuery() != null) {
                 String data = update.callbackQuery().data();
                 long chatIdCallBack = update.callbackQuery().message().chat().id();
-            if (data.equals("Test1")) {
-                telegramSenderService.getKeyboard2(chatIdCallBack);
-                telegramSenderService.send(chatIdCallBack, "Пожалуйста, выбери что тебя интересует!");
-            }
-            if (data.equals("Test2")) {
-                telegramSenderService.getKeyboard3(chatIdCallBack);
-                telegramSenderService.send(chatIdCallBack, "Пожалуйста, выбери что тебя интересует!");
+                if (data.equals("Test1")) {
+                    telegramSenderService.getKeyboard2(chatIdCallBack);
+                    telegramSenderService.send(chatIdCallBack, "Пожалуйста, выбери что тебя интересует!");
                 }
-            }
-            else {
+                if (data.equals("Test2")) {
+                    telegramSenderService.getKeyboard3(chatIdCallBack);
+                    telegramSenderService.send(chatIdCallBack, "Пожалуйста, выбери что тебя интересует!");
+                }
+            } else {
                 Long chatId = update.message().chat().id();
                 String message = update.message().text();
 
@@ -55,12 +54,11 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
                 } else {
                     telegramSenderService.send(chatId, "Неверный формат сообщения, попробуй еще раз!");
                 }
-                }
-            });
-            return UpdatesListener.CONFIRMED_UPDATES_ALL;
-        }
+            }
+        });
+        return UpdatesListener.CONFIRMED_UPDATES_ALL;
     }
-
+}
 
 
 

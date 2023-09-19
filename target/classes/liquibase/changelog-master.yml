@@ -1,4 +1,0 @@
-databaseChangeLog:
-
-  - include:
-      file: liquibase/scripts/cats-and-dogs.sql
