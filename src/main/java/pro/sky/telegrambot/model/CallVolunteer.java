@@ -6,18 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.sql.Timestamp;
 
 @Entity
 @Data
-public class Dog {
-
+public class CallVolunteer {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
-    private String nickname;
-    private String breed;
-    private int age;
-    private String note;
-
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private long chatId;
+    private Timestamp messageDate;
+    private String messageText;
 }
